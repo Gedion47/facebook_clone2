@@ -179,6 +179,8 @@ class AuthProvider extends ChangeNotifier {
 
       final GoogleSignIn googleSignIn = GoogleSignIn();
 
+      await googleSignIn.signOut(); // clear cache for last log-in
+
       final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
 
       // if User canceled the sign-in
