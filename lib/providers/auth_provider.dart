@@ -51,10 +51,8 @@ class AuthProvider extends ChangeNotifier {
       // Update user display name
       await userCredential.user?.updateDisplayName(name);
 
-      // Update current user
       _currentUser = userCredential.user;
 
-      // Optional: Show success message
       if (context != null) {
         _showSuccessSnackBar(context, 'Account created successfully!');
       }
@@ -72,7 +70,7 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  // Sign in with email and password (for future use)
+  // Sign in with email and password
   Future<User?> signInWithEmail({
     required String email,
     required String password,
@@ -81,7 +79,6 @@ class AuthProvider extends ChangeNotifier {
       _setLoading(true);
       _clearError();
 
-      // Manual validation (same as signup)
       if (email.isEmpty) {
         throw Exception('Please enter your email');
       }
@@ -216,6 +213,7 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
+  //Forgot Password
   Future<void> sendPasswordResetEmail({
     required String email,
     required BuildContext context,

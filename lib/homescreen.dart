@@ -212,7 +212,7 @@ class homescreen extends StatelessWidget {
                   ),
                   Divider(color: const Color.fromARGB(255, 202, 202, 202), height: 22, thickness: 2),
                   SizedBox(height: 10.0),
-                  //------personal posts--------
+                  // personal posts
                   facebookPost(
                     profileImage: 'assets/images/profile.jpg',
                     username: 'Gedion',

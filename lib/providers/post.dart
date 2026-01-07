@@ -61,13 +61,17 @@ Widget facebookPost({
             ),
           ],
         ),
+
         SizedBox(height: 10),
+
         Text(
           postText,
           style: TextStyle(fontSize: 15),
         ),
+
         SizedBox(height: 10),
-        //------post image-------
+
+        //post image
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
           child: Image.asset(
@@ -77,8 +81,10 @@ Widget facebookPost({
             fit: BoxFit.cover,
           ),
         ),
+
         SizedBox(height: 10),
-        //----like/comment/share
+
+        //like/comment/share
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

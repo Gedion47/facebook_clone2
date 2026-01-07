@@ -51,7 +51,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 16), // Changed from 40 to 16
+                const SizedBox(height: 16),
                 TextField(
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
@@ -66,7 +66,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 16), // Changed from 40 to 16
+                const SizedBox(height: 16),
                 TextField(
                   controller: passwordController,
                   obscureText: true,
@@ -116,7 +116,7 @@ class _SignupPageState extends State<SignupPage> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        onPressed: authProvider.isLoading ? null : () => _signUp(context), // Fixed this line
+                        onPressed: authProvider.isLoading ? null : () => _signUp(context),
                         child: authProvider.isLoading
                             ? CircularProgressIndicator(color: Colors.white)
                             : const Text(
@@ -157,7 +157,10 @@ class _SignupPageState extends State<SignupPage> {
                                 if (!mounted) return;
 
                                 if (user != null) {
-                                  Navigator.pushReplacement(
+                                  emailController.clear();
+                                  passwordController.clear();
+
+                                  Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                       builder: (_) => homescreen(),
@@ -212,28 +215,24 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 
-  // Sign up function - Now much simpler
   Future<void> _signUp(BuildContext context) async {
     // Get the provider
     final authProvider = Provider.of<AuthProvider>(context, listen: false);
 
-    // Call the provider's sign up method
     final user = await authProvider.signUpWithEmail(
       email: emailController.text,
       password: passwordController.text,
       name: nameController.text,
-      context: context, // Pass context for the success snackbar
+      context: context, // Passing context for the success snackbar
     );
 
     // If signup was successful
     if (user != null) {
-      // Clear the text fields
       nameController.clear();
       emailController.clear();
       passwordController.clear();
 
-      // Navigate to homescreen page after successful signup
-      Navigator.pushReplacement(
+      Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => homescreen()),
       );

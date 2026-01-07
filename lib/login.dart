@@ -16,13 +16,6 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
 
   @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final authProvider = context.watch<AuthProvider>();
 
@@ -106,26 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    onPressed: authProvider.isLoading
-                        ? null
-                        : () async {
-                            final email = emailController.text.trim();
-                            final password = passwordController.text.trim();
-
-                            final user = await context.read<AuthProvider>().signInWithEmail(
-                                  email: email,
-                                  password: password,
-                                );
-
-                            if (user != null && mounted) {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => const homescreen(),
-                                ),
-                              );
-                            }
-                          },
+                    onPressed: authProvider.isLoading ? null : () => _login(context),
                     child: authProvider.isLoading
                         ? const CircularProgressIndicator(
                             color: Colors.white,
@@ -142,6 +116,64 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 const SizedBox(height: 16),
+
+                //Continue with google button
+                Consumer<AuthProvider>(
+                  builder: (context, authProvider, child) {
+                    return SizedBox(
+                      width: double.infinity,
+                      height: 48,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            side: const BorderSide(color: Colors.grey),
+                          ),
+                          elevation: 0,
+                        ),
+                        onPressed: authProvider.isLoading
+                            ? null
+                            : () async {
+                                final user = await authProvider.signInWithGoogle();
+
+                                if (!mounted) return;
+
+                                if (user != null) {
+                                  emailController.clear();
+                                  passwordController.clear();
+
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => homescreen(),
+                                    ),
+                                  );
+                                }
+                              },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/images/google_logo.png',
+                              height: 22,
+                              width: 22,
+                            ),
+                            const SizedBox(width: 12),
+                            const Text(
+                              'Continue with Google',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
 
                 // Forgot password
                 TextButton(
@@ -211,5 +243,37 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  Future<void> _login(BuildContext context) async {
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+
+    // Get the provider
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+
+    final user = await authProvider.signInWithEmail(
+      email: email,
+      password: password,
+    );
+
+    // If login was successful
+    if (user != null) {
+      emailController.clear();
+      passwordController.clear();
+
+      if (!mounted) return;
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const homescreen()),
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 }
