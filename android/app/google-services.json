@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "235607417186",
+    "project_id": "facebook-2a8be",
+    "storage_bucket": "facebook-2a8be.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235607417186:android:270fdf837001713be30c3b",
+        "android_client_info": {
+          "package_name": "com.example.facebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235607417186-u28ttvc3sd0c6snk7ctqe8t4bphaiq7u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.facebook",
+            "certificate_hash": "ba5aa553d349875dbd17f66c9f7e44b86c6a3f2b"
+          }
+        },
+        {
+          "client_id": "235607417186-lusefmno4p9asplviieco4580pc8ejg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHre85zIPcBXFikVw9RkUTVii-4g2cxME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235607417186-lusefmno4p9asplviieco4580pc8ejg6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "235607417186-d7on7smta02vjqc24r5429ji3uqeefij.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.facebook"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235607417186:android:d4a69522dfbcf7c5e30c3b",
+        "android_client_info": {
+          "package_name": "com.example.facebook_clone2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235607417186-lusefmno4p9asplviieco4580pc8ejg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHre85zIPcBXFikVw9RkUTVii-4g2cxME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235607417186-lusefmno4p9asplviieco4580pc8ejg6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "235607417186-d7on7smta02vjqc24r5429ji3uqeefij.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.facebook"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
