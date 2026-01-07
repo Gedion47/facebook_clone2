@@ -147,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (_) => homescreen(),
+                                      builder: (_) => HomeScreen(),
                                     ),
                                   );
                                 }
@@ -265,7 +265,7 @@ class _LoginPageState extends State<LoginPage> {
       if (!mounted) return;
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const homescreen()),
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
       );
     }
   }
