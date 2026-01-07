@@ -1,3 +1,4 @@
+import 'package:facebook_clone2/providers/notifications.dart';
 import 'package:flutter/material.dart';
 import './providers/post.dart';
 import './providers/friend_requests.dart';
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final PageController _pageController = PageController();
   int _currentPageIndex = 0;
 
-  // Home Page Content
+  // Home Page
   Widget _buildHomePage() {
     return ListView(
       children: [
@@ -64,117 +65,120 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          width: 100,
-                          height: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Stack(
-                            clipBehavior: Clip.none,
-                            children: [
-                              Column(
-                                children: [
-                                  //Top-half of the container
-                                  Container(
-                                    width: 100,
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-                                      image: DecorationImage(
-                                        image: AssetImage("assets/images/profile.jpg"),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  //Bottom-half
-                                  Container(
-                                    width: 100,
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
-                                      color: Colors.white,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.black,
-                                          blurRadius: 2,
-                                          offset: Offset(0, 0),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10.0, 0, 0, 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Stack(
+                              clipBehavior: Clip.none,
+                              children: [
+                                Column(
+                                  children: [
+                                    //Top-half of the container
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                                        image: DecorationImage(
+                                          image: AssetImage("assets/images/profile.jpg"),
+                                          fit: BoxFit.cover,
                                         ),
-                                      ],
-                                    ),
-                                    alignment: Alignment.bottomCenter,
-                                    child: const Text(
-                                      "Create Story",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w700,
                                       ),
-                                      textAlign: TextAlign.center,
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Positioned(
-                                top: 71.5,
-                                left: 0,
-                                right: 0,
-                                child: Center(
-                                  child: GestureDetector(
-                                    onTap: () => {},
-                                    child: IconButton(
-                                      icon: Icon(Icons.add_circle, size: 40, color: Colors.blue),
-                                      onPressed: () => {},
+                                    //Bottom-half
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
+                                        color: Colors.white,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black,
+                                            blurRadius: 2,
+                                            offset: Offset(0, 0),
+                                          ),
+                                        ],
+                                      ),
+                                      alignment: Alignment.bottomCenter,
+                                      child: const Text(
+                                        "Create Story",
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Positioned(
+                                  top: 71.5,
+                                  left: 0,
+                                  right: 0,
+                                  child: Center(
+                                    child: GestureDetector(
+                                      onTap: () => {},
+                                      child: IconButton(
+                                        icon: Icon(Icons.add_circle, size: 40, color: Colors.blue),
+                                        onPressed: () => {},
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        for (int i = 0; i < 8; i++)
-                          Padding(
-                            padding: const EdgeInsets.only(right: 10.0),
-                            child: GestureDetector(
-                              onTap: () => {},
-                              child: Stack(
-                                children: [
-                                  Container(
-                                    width: 100,
-                                    height: 200,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        image: AssetImage("assets/images/profile.jpg"),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  Positioned(
-                                    bottom: 8,
-                                    left: 10,
-                                    right: 0,
-                                    child: Text(
-                                      "Gedion",
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                              ],
                             ),
                           ),
-                      ],
+                          SizedBox(width: 10),
+                          for (int i = 0; i < 8; i++)
+                            Padding(
+                              padding: const EdgeInsets.only(right: 10.0),
+                              child: GestureDetector(
+                                onTap: () => {},
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 200,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        image: DecorationImage(
+                                          image: AssetImage("assets/images/profile.jpg"),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      bottom: 8,
+                                      left: 10,
+                                      right: 0,
+                                      child: Text(
+                                        "Gedion",
+                                        textAlign: TextAlign.start,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
               ),
-              Divider(color: const Color.fromARGB(255, 202, 202, 202), height: 22, thickness: 2),
+              Divider(color: const Color.fromARGB(255, 202, 202, 202), height: 10, thickness: 2),
               SizedBox(height: 10.0),
             ],
           ),
@@ -198,7 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // Profile Page
+  // Friends Page
   Widget _buildFriendsPage() {
     return ListView(
       children: [
@@ -209,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Text(
                 "Friend Requests",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
               ),
               SizedBox(height: 10),
               friendRequestCard(
@@ -237,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 10),
               Text(
                 "People you may know",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
               ),
               SizedBox(height: 10),
               friendSuggestionCard(
@@ -266,21 +270,63 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Notifications Page
   Widget _buildNotificationsPage() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.notifications, size: 100, color: Colors.blue),
-          SizedBox(height: 20),
-          Text(
-            'Notifications Page',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+    return ListView(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Notifications",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
+              ),
+              SizedBox(height: 10),
+              notificationCard(
+                profileImage: "assets/images/profile.jpg",
+                message: "You have memories with Taliah Rossi and Mabel Quintero to look back on today",
+                time: "3 hours ago",
+              ),
+              SizedBox(height: 10),
+              notificationCard(
+                profileImage: "assets/images/profile.jpg",
+                message: "Susan Preece changed her profile picture",
+                time: "yesterday at 11:22pm",
+              ),
+              SizedBox(height: 10),
+              notificationCard(
+                profileImage: "assets/images/profile.jpg",
+                message: "David Beckham changed his profile picture",
+                time: "yesterday at 8:28pm",
+              ),
+              SizedBox(height: 10),
+              notificationCard(
+                profileImage: "assets/images/profile.jpg",
+                message: "Macaulay Dolan's birthday was yesterday.",
+                time: "10 hours ago",
+              ),
+              SizedBox(height: 10),
+              notificationCard(
+                profileImage: "assets/images/profile.jpg",
+                message: "David Beckham changed his profile picture",
+                time: "yesterday at 9:00pm",
+              ),
+              SizedBox(height: 10),
+              notificationCard(
+                profileImage: "assets/images/profile.jpg",
+                message: "David Beckham changed his profile picture",
+                time: "yesterday at 8:50pm",
+              ),
+              SizedBox(height: 10),
+              notificationCard(
+                profileImage: "assets/images/profile.jpg",
+                message: "David Beckham changed his profile picture",
+                time: "yesterday at 7:28pm",
+              ),
+            ],
           ),
-          SizedBox(height: 10),
-          Text('Your notifications will appear here'),
-          // You can add notifications list here
-        ],
-      ),
+        ),
+      ],
     );
   }
 

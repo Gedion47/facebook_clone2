@@ -8,7 +8,7 @@ Widget facebookPost({
   required String postImage,
 }) {
   return Container(
-    margin: EdgeInsets.symmetric(vertical: 10),
+    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
     padding: EdgeInsets.all(10),
     decoration: BoxDecoration(
       color: Colors.white,
@@ -37,24 +37,26 @@ Widget facebookPost({
                 ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  username,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                ),
-                Text(
-                  time,
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
-                ),
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    username,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                  Text(
+                    time,
+                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                  ),
+                ],
+              ),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 IconButton(
-                  icon: const Icon(Icons.menu, size: 20),
+                  icon: const Icon(Icons.more_horiz, size: 20),
                   onPressed: () => {},
                 ),
               ],

@@ -25,7 +25,6 @@ class AuthProvider extends ChangeNotifier {
       _setLoading(true);
       _clearError();
 
-      // Validate inputs
       if (name.isEmpty) {
         throw Exception('Please enter your name');
       }
@@ -95,7 +94,6 @@ class AuthProvider extends ChangeNotifier {
       _currentUser = userCredential.user;
       return _currentUser;
     } on FirebaseAuthException catch (e) {
-      // Handles wrong-password, user-not-found, etc.
       _setError(_getFirebaseErrorMessage(e));
       return null;
     } catch (e) {
@@ -183,7 +181,7 @@ class AuthProvider extends ChangeNotifier {
 
       final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
 
-      // User canceled the sign-in
+      // if User canceled the sign-in
       if (googleUser == null) {
         _setLoading(false);
         return null;
