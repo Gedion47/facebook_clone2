@@ -39,10 +39,10 @@
               "client_type": 3
             },
             {
-              "client_id": "235607417186-d7on7smta02vjqc24r5429ji3uqeefij.apps.googleusercontent.com",
+              "client_id": "235607417186-97j8bjajgji8ihoj1atfpc8qcu507j9t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.facebook"
+                "bundle_id": "com.example.facebookClone2"
               }
             }
           ]
@@ -57,6 +57,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "235607417186-7b4vjdabh3vs03r0d8e2a64cv17e056e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.facebook_clone2",
+            "certificate_hash": "ba5aa553d349875dbd17f66c9f7e44b86c6a3f2b"
+          }
+        },
         {
           "client_id": "235607417186-lusefmno4p9asplviieco4580pc8ejg6.apps.googleusercontent.com",
           "client_type": 3
@@ -75,10 +83,10 @@
               "client_type": 3
             },
             {
-              "client_id": "235607417186-d7on7smta02vjqc24r5429ji3uqeefij.apps.googleusercontent.com",
+              "client_id": "235607417186-97j8bjajgji8ihoj1atfpc8qcu507j9t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.facebook"
+                "bundle_id": "com.example.facebookClone2"
               }
             }
           ]
