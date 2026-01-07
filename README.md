@@ -1,16 +1,46 @@
-# facebook_clone2
+# Facebook Clone
 
-A new Flutter project.
+Facebook Clone is a flutter app that runs both on ios and android and showcases the UI of the `Facebook` mobile app. The project includes following pages:
+
+    - Splash Screen
+    - Login page
+    - Signup page
+    - Home page
+    - Friend requests and suggestions page
+    - Notifications page
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+## Installation
 
-A few resources to get you started if this is your first Flutter project:
+**Step 1:**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Download or clone this repo by using the link below:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+https://github.com/Gedion47/facebook_clone2.git
+```
+
+**Step 2:**
+
+Go to project root folder
+
+```
+cd facebook_clone2
+```
+
+**Step 3:**
+
+Execute the following command in console to get the required dependencies:
+
+```
+flutter pub get
+```
+
+**Step 4:**
+
+Make sure you have a device (Simulator/Emulator/Actual Mobile) connected then run the app:
+
+```
+flutter run
+```
