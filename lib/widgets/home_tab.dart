@@ -9,7 +9,7 @@ class HomeTab extends StatelessWidget {
     return ListView(
       children: [
         Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.only(top: 10),
           child: Column(
             children: [
               Row(
@@ -43,7 +43,127 @@ class HomeTab extends StatelessWidget {
                   ),
                 ],
               ),
-              const Divider(thickness: 2),
+              const Divider(height: 20, thickness: 2),
+              // story panel
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10.0, 0, 0, 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Stack(
+                              clipBehavior: Clip.none,
+                              children: [
+                                Column(
+                                  children: [
+                                    //Top-half of the container
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                                        image: DecorationImage(
+                                          image: AssetImage("assets/images/profile.jpg"),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    //Bottom-half
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
+                                        color: Colors.white,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black,
+                                            blurRadius: 2,
+                                            offset: Offset(0, 0),
+                                          ),
+                                        ],
+                                      ),
+                                      alignment: Alignment.bottomCenter,
+                                      child: const Text(
+                                        "Create Story",
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Positioned(
+                                  top: 71.5,
+                                  left: 0,
+                                  right: 0,
+                                  child: Center(
+                                    child: GestureDetector(
+                                      onTap: () => {},
+                                      child: IconButton(
+                                        icon: Icon(Icons.add_circle, size: 40, color: Colors.blue),
+                                        onPressed: () => {},
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          for (int i = 0; i < 8; i++)
+                            Padding(
+                              padding: const EdgeInsets.only(right: 10.0),
+                              child: GestureDetector(
+                                onTap: () => {},
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 200,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        image: DecorationImage(
+                                          image: AssetImage("assets/images/profile.jpg"),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      bottom: 8,
+                                      left: 10,
+                                      right: 0,
+                                      child: Text(
+                                        "Gedion",
+                                        textAlign: TextAlign.start,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Divider(color: const Color.fromARGB(255, 202, 202, 202), height: 10, thickness: 2),
               const SizedBox(height: 10),
             ],
           ),

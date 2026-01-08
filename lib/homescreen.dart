@@ -102,7 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Divider(color: Colors.grey, height: 0, thickness: 0.5),
-
           // PageView (swipeable)
           Expanded(
             child: _buildPageView(),
